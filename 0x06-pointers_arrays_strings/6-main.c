@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-char str[] = "Expect the best. Prepare for the worst. Capitalize on what come\n
+char str[] = "Task 6\n
 	hello world! hello-world 0123456hello world\thello world.hello world\n";
 char *ptr;
 
