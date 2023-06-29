@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * infinite_ add - Adds two integers
+ * infinite_add - Adds two integers
+ * @size_r - buffer size
  * @n1: The first number to be added
  * @n2: The second number to be added to the first one
  * @r: The buffer used to store the results.
  * Return: A pointer to the result
  */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+char *infinite_add(char *n1, char *n2, char *r, int *size_r)
 {
 int val1 = 0, val2 = 0, temp_tot = 0;
 
@@ -47,4 +48,3 @@ int val1 = 0, val2 = 0, temp_tot = 0;
 	rev_string(r);
 	return (r);
 	}
-	
