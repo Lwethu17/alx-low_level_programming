@@ -7,7 +7,7 @@
  * @file_from: file from
  * @file_to: file to
  * @argv: arguments count.
- * Return: void
+ * Return: nothing
  */
 void error_file(int file_from, int file_to, char *argv[])
 {
