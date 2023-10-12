@@ -9,53 +9,40 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *str;
-	unsigned int n;
-	unsigned int len;
+	dlistint_t *h1;
+	dlistint_t *h2;
+	unsigned int m;
 
-	len = len_node(&head);
-	str = *head;
 
-	if (*head == NULL)
-		return (-1);
-	if (index == 0)
+	h1 = *head;
+
+	if (h1 != NULL)
+		while (h1->prev != NULL)
+			h1 = h1->prev;
+
+	m = 0;
+
+	while (h1 != NULL)
 	{
-		str = str->next;
-		free(*head);
-		*head = str;
-		if (str != NULL)
-			str->prev = NULL;
+		if (m == index)
+		{
+			*head = h1->next;
+			if (*head != NULL)
+				(*head)->prev = NULL;
+		}
+		else
+		{
+			h2->next = h1->next;
+
+			if (h1->next != NULL)
+				h1->next->prev = h2;
+		}
+		free(h1);
 		return (1);
 	}
-	for (n = 0; n <= index - 1; n++)
-	{
-		str = str->next;
-		if (!str)
-			return (-1);
-	}
-	if (len - 1 == index)
-	{
-		str->prev->next = NULL;
-		free(str);
-		return (1);
-	}
-}
+	h2 = h1;
+	h1 = h1->next;
+	m++;
 
-/**
- * len_node - list len
- * @node:list
- * Return:unsigned int
- */
-unsigned int len_node(dlistint_t **node)
-{
-	unsigned int len = 0;
-	dlistint_t *str;
-
-	str = *node;
-	while (str != NULL)
-	{
-		len += 1;
-		str = str->next;
-	}
-	return (len);
+	return (-1);
 }
